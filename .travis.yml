@@ -1,0 +1,22 @@
+# https://docs.travis-ci.com/user/docker/
+os: linux
+dist: trusty
+sudo: required
+services:
+- docker
+
+cache:
+  directories:
+  - $HOME/.m2
+
+env:
+  global:
+    # DOCKER_PASSWORD
+    - secure: "HWInlMLDNp44bSMigh1I4MftHOh/usDaDgeBsQNmNfQumaFtYUDzHeoQxaQRRTce5KtQU7aQCuVZ27Gble0fTKY6lUaUYG+bP/FOx7APwj8svsLFaDTFKthyL8w4fx6ygvOvRoZDRBHLQRSZFmfy/y+jfpULAUViPIPCrNUEAM+PLhsBkoGs81LK9vKTohhA4bxq9msQJM8mmasn9BGvlKYCDDPzHkCSbmETLERJiQ1etc9X41mJwTnykmdq/GSY1ZdGEwMGP731viljGWw9NC6ARTc5oSlqmvTH9b4OiHHNpnqMJQI5CO8psSCctZnYazR0AZD1vAttkhBSL1QGdYHC7hVJvEpEn/x90/OBpY4PHsOJ2kHd6VUoRPGcyKLApaWTt7HXqaKkehfvJRS7V5XwZXIV0XafbkicWez3cjtoGzMEJ4Bxuhock/CyjEv2ZA85Fij0w3G2wX4RqD/7vBj2T8ZoN1GSDnrRkWVcBYOo6TofaJOHjXeqmst75zm9CRqbXrmf2gZ+edkekWnCoLonpz1THwks7v61HKCcLGLWr/HlRabs6ns1w/1Lmlwp8zXWJCrHIB6OMRf4kLzC0uNmUxXKrY7hwXr/bQ3pEwrUINemK48+POyc4QeMGs/k23l+uLiMGPxL6ldfBfvol+oqFcQpNLfx0i0VtcVmf7I="
+
+script:
+- ./build.sh
+
+# https://sebest.github.io/post/using-travis-ci-to-build-docker-images/
+after_success:
+- ./push.sh
