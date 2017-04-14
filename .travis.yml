@@ -29,5 +29,5 @@ addons:
     # The command that will be added as an argument to "cov-build" to compile your project for analysis,
     build_command: ./build_for_analysis.sh
 
-script:
-  # noop
+# skip default build steps
+script: []
