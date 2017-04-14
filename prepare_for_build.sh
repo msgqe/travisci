@@ -7,5 +7,6 @@ git clone git://git.apache.org/activemq-artemis.git
 cd activemq-artemis
 
 pushd artemis-native
+cmake .
 make clean
 popd
