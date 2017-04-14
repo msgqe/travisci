@@ -5,6 +5,10 @@ language:
 - c
 - java
 
+cache:
+  directories:
+  - $HOME/.m2
+
 env:
   global:
     # COVERITY_SCAN_TOKEN
