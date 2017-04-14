@@ -1,0 +1,74 @@
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+
+# https://docs.travis-ci.com/user/docker/
+os: linux
+dist: trusty
+sudo: required
+
+language: python
+python: 3.5
+
+services:
+  - docker
+
+addons:
+  # https://docs.travis-ci.com/user/firefox/
+  # https://muffinresearch.co.uk/using-the-latest-version-of-firefox-in-travis-ci/
+  firefox: latest-beta
+  apt:
+    sources:
+      # http://blog.500tech.com/setting-up-travis-ci-to-run-tests-on-latest-google-chrome-version/
+      - google-chrome
+    packages:
+      # - google-chrome-stable
+      - google-chrome-beta
+
+# https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/.travis.yml
+env:
+  global:
+    - "IMAGE_TAG=latest"
+  matrix:
+    - "CONSOLE=hawtio DRIVER=Chrome PLATFORM=any BROWSER_NAME=any VERSION=any"
+    - "CONSOLE=hawtio DRIVER=Firefox PLATFORM=any BROWSER_NAME=firefox VERSION=any"
+    - "CONSOLE=stand-alone DRIVER=Chrome PLATFORM=any BROWSER_NAME=any VERSION=any"
+    - "CONSOLE=stand-alone DRIVER=Firefox PLATFORM=any BROWSER_NAME=firefox VERSION=any"
+
+before_install:
+  - bash setup_webdriver.sh
+  - export PATH=$PATH:$PWD
+
+install:
+  - git clone https://github.com/jdanekrh/dispatch-console-tests.git
+  - pip install -r ./dispatch-console-tests/requirements.txt
+
+# https://docs.travis-ci.com/user/gui-and-headless-browsers/
+# https://swizec.com/blog/how-to-run-javascript-tests-in-chrome-on-travis/swizec/6647
+before_script:
+  - "export CHROME_BIN=chromium-browser"
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+
+script:
+  - cd dispatch-console-tests && bash ./scripts/travis.sh
+
+cache:
+  directories:
+  - $HOME/.m2
