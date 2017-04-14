@@ -1,7 +1,7 @@
 # activemq-artemis-coverity
 
 [![Travis CI Build Status](https://travis-ci.org/msgqe/travisci.svg?branch=activemq-artemis-coverity)](https://travis-ci.org/msgqe/travisci/branches)
-[![Coverity Scan Status](https://scan.coverity.com/projects/11809/badge.svg)](https://scan.coverity.com/projects/apache-activemq-artemis)
+[![Coverity Scan Status](https://scan.coverity.com/projects/11809/badge.svg)](https://scan.coverity.com/projects/apacheactivemqartemis)
 
 Builds activemq-artemis and submits the build to Coverity Scan
 

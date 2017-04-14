@@ -12,7 +12,7 @@ cache:
 env:
   global:
     # COVERITY_SCAN_TOKEN
-    - secure: "kLJXW7OvvVji1/ClZI3bVwBwqpAVF9pU3S5f8ZXcMsO/NI9BdMijg6uwF2XHGqiiwJ9a2bUncmcLZLrYQdsSCpUiryQm7Lv8oMDVCywV9ikmblsUKxfM582JlH2rf8ORnGMZ24nUcV8+1wtr4SQjTEnRlOn9lmv7RvLRNlBINdmVEulpNe6r9FXWJ6Nkd5wiWGniyNhff21sdt/8tbb/HUoBKV6UT9yP28pdgBpoa3X+jkSzgQYGmD/kHZ114wjE+f0xGhj89TUtBk4Lf22gdKOhj0x48Dzzucn7Z73BgKbm65APJ9PMIp73iCPWkbGkdY/suEqinGv5T8MTgdIP9O76WkvPjOwDZaM+1MZAIrW7raSuiz5Z5CV29Z9O6c8sSm4aW3j9dFpmhU2RQtEtfsplfivrNlAYB7LGZ02+rid0EBHKPL6R89wJUUlpYjhqVc8EfgFjKCIZQ6LtwBceAr+MN383XoDAUDbZ7AU4O4/ntuN+fEAwjvmQZPQtNW1Ekzp/naOaFSx0rePW0UsRO8RH6Tw9KrDjkjnBRe4zBWrNFD+5a0XwFdiBM05LDXPfFmBXDLwcO6kM6bVYjvdCz2dmRcdDUL3gjlcrw5TIthL+YZYiBQaCdOfA7nxHsuG0t3syDNmCi2mhb5WPEBrAj3g/EOR0vcvFpqQWmtm7UE0="
+    - secure: "A41KRDn115GM9r8ck9px6DNORC2GuOkiqxvGUQXVZoapXJ11/eB8xJlcqap/FFqWkIW/zoepS29jl6Qqd4b8QwkzcTeh9kNgw+PIS5/ldqYUOBIGl6Se3FPa9STLuMHvfhDh6P+N3Rq1Wy2l4BTZggqPEslU5kEH7y+4wBpqP78b/kfJDNkk1zBSKSuLJmrX5zw3bzlOTYBfVV6UNM1lqavslr7c5tlf9IWs22TRPsHIkB8h0wkgGo7JNxNv7ggVDX+R0vA3XfwJ1QPzHwnazvdCZawLuBSEk1BezF03Bwnq4xguEfZYXXLTL0cJ6LdT0w5beOr7gbVGFP5XFIZDy02oNGnlQODws3gPMoVXfMryZMbt2yQq8PhVgy3e3zpIveX5lje4QNayur8AlNpCn3sOzs9XcbgZJOgdX08uuN5VL+6LxN1aQLPR/9b9JMmvBHgBawNWMRvgl/ZOvV21ZXohm6dPryTsF4VGIXCgHX7z33vOAdi0Z/zvuPYtRsW1VFaYgNnHeCIVBvXHBHWy0XK3d/Ty/N3R0vhX5LfOKjPyqs7wea9shIy4Mn4G5v/InYpESfgs8VRjXfRb2L28i8Oi7f6AJv4nzP/9JJpJo1K+pdYTme3/OP2tWisA55ZLcOTMMHJl5IzxzdDke8e63Hb4mRmO3cfYyece5rLU2Ak="
 
 addons:
   apt:
@@ -21,11 +21,11 @@ addons:
   # https://scan.coverity.com/travis_ci
   coverity_scan:
     project:
-      name: Apache ActiveMQ Artemis
+      name: ApacheActiveMQArtemis
       version: 2.1.0-SNAPSHOT
       description: Apache ActiveMQ Artemis has a proven non blocking architecture. It delivers outstanding performance.
 
-    # notification_email: issues@activemq.apache.com
+    notification_email: jdanek@redhat.com
 
     # Commands to prepare for build_command
     build_command_prepend: ./prepare_for_build.sh
