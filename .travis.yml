@@ -13,7 +13,7 @@ env:
 addons:
   apt:
     packages:
-    - libaio-devel
+    - libaio-dev
   # https://scan.coverity.com/travis_ci
   coverity_scan:
     project:
