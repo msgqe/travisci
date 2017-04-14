@@ -1,44 +1,19 @@
-os:
-- linux
+os: linux
+dist: trusty
 sudo: false
 language:
-- python
-python:
-- 2.7
-addons:
-  apt:
-    packages:
-    - cmake
-    - libssl-dev
-    - libsasl2-dev
-    - sasl2-bin
-    - swig
-    - python-dev
-    - valgrind
-    - ruby
-    - ruby-dev
-    - python3-dev
-    - php5
-    - openjdk-7-jdk
-install:
-- pip install --upgrade pip
-- pip install tox
-- gem install rspec
-- gem install simplecov || true
-- gem install minitest
-before_script:
-- export PATH=${HOME}/.local/bin:${PATH}
-- mkdir Build
-- cd Build
-- cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/install
-script:
-- cmake --build . --target install && ctest -V
+- c
+- java
+
 env:
   global:
     # COVERITY_SCAN_TOKEN
     - secure: "kLJXW7OvvVji1/ClZI3bVwBwqpAVF9pU3S5f8ZXcMsO/NI9BdMijg6uwF2XHGqiiwJ9a2bUncmcLZLrYQdsSCpUiryQm7Lv8oMDVCywV9ikmblsUKxfM582JlH2rf8ORnGMZ24nUcV8+1wtr4SQjTEnRlOn9lmv7RvLRNlBINdmVEulpNe6r9FXWJ6Nkd5wiWGniyNhff21sdt/8tbb/HUoBKV6UT9yP28pdgBpoa3X+jkSzgQYGmD/kHZ114wjE+f0xGhj89TUtBk4Lf22gdKOhj0x48Dzzucn7Z73BgKbm65APJ9PMIp73iCPWkbGkdY/suEqinGv5T8MTgdIP9O76WkvPjOwDZaM+1MZAIrW7raSuiz5Z5CV29Z9O6c8sSm4aW3j9dFpmhU2RQtEtfsplfivrNlAYB7LGZ02+rid0EBHKPL6R89wJUUlpYjhqVc8EfgFjKCIZQ6LtwBceAr+MN383XoDAUDbZ7AU4O4/ntuN+fEAwjvmQZPQtNW1Ekzp/naOaFSx0rePW0UsRO8RH6Tw9KrDjkjnBRe4zBWrNFD+5a0XwFdiBM05LDXPfFmBXDLwcO6kM6bVYjvdCz2dmRcdDUL3gjlcrw5TIthL+YZYiBQaCdOfA7nxHsuG0t3syDNmCi2mhb5WPEBrAj3g/EOR0vcvFpqQWmtm7UE0="
 
 addons:
+  apt:
+    packages:
+    - libaio-devel
   # https://scan.coverity.com/travis_ci
   coverity_scan:
     project:
@@ -53,3 +28,6 @@ addons:
 
     # The command that will be added as an argument to "cov-build" to compile your project for analysis,
     build_command: ./build_for_analysis.sh
+
+script:
+  # noop
