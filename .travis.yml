@@ -31,14 +31,13 @@ services:
 addons:
   # https://docs.travis-ci.com/user/firefox/
   # https://muffinresearch.co.uk/using-the-latest-version-of-firefox-in-travis-ci/
-  firefox: latest-beta
+  firefox: latest
   apt:
     sources:
       # http://blog.500tech.com/setting-up-travis-ci-to-run-tests-on-latest-google-chrome-version/
       - google-chrome
     packages:
-      # - google-chrome-stable
-      - google-chrome-beta
+      - google-chrome-stable
 
 # https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/.travis.yml
 env:
