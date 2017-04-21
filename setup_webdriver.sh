@@ -12,5 +12,5 @@ export CHROMEDRIVER_VERSION=`curl -s http://chromedriver.storage.googleapis.com/
 curl -L -O "http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
 unzip chromedriver_linux64.zip
 chmod +x chromedriver
-curl -L -O "https://github.com/mozilla/geckodriver/releases/download/v0.15.0/geckodriver-v0.15.0-linux64.tar.gz"
+curl -L -O "https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-linux64.tar.gz"
 tar -xvf geckodriver-*
