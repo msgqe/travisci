@@ -67,8 +67,8 @@ env:
     - "CONSOLE=hawtio DRIVER=Firefox PLATFORM=any BROWSER_NAME=firefox VERSION=any"
     - "CONSOLE=stand-alone DRIVER=Chrome PLATFORM=any BROWSER_NAME=any VERSION=any"
     - "CONSOLE=stand-alone DRIVER=Firefox PLATFORM=any BROWSER_NAME=firefox VERSION=any"
-    - "CONSOLE=hawtio DRIVER=SauceLabs PLATFORM='Windows 8' BROWSER_NAME='internet explorer' VERSION='10.0'"
-    - "CONSOLE=stand-alone DRIVER=SauceLabs PLATFORM='Windows 8' BROWSER_NAME='internet explorer' VERSION='10.0'"
+    - "CONSOLE=hawtio DRIVER=SauceLabs PLATFORM='Windows 8.1' BROWSER_NAME='internet explorer' VERSION='11.0'"
+    - "CONSOLE=stand-alone DRIVER=SauceLabs PLATFORM='Windows 8.1' BROWSER_NAME='internet explorer' VERSION='11.0'"
     - "CONSOLE=hawtio DRIVER=BrowserStack PLATFORM='10' BROWSER_NAME='Edge' VERSION='14'"
     - "CONSOLE=stand-alone DRIVER=BrowserStack PLATFORM='10' BROWSER_NAME='Edge' VERSION='14'"
 
