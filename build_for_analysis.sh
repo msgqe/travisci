@@ -10,4 +10,4 @@ popd
 
 # https://scan.coverity.com/download?tab=java
 # see ARTEMIS-861, Coverity Scan has similar limitations as IBM JDK, by coincidence
-mvn -Pexamples,ibm-jdk8 -DskipTests=true -Dmaven.javadoc.skip=true compile
+mvn -Pibm-jdk8 -DskipTests=true -Dmaven.javadoc.skip=true compile
