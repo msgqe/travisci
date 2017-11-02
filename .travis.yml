@@ -1,8 +1,7 @@
 os: linux
 dist: trusty
-sudo: true
+sudo: false
 language:
-- c
 - java
 
 cache:
@@ -12,18 +11,15 @@ cache:
 env:
   global:
     # COVERITY_SCAN_TOKEN
-    - secure: "A41KRDn115GM9r8ck9px6DNORC2GuOkiqxvGUQXVZoapXJ11/eB8xJlcqap/FFqWkIW/zoepS29jl6Qqd4b8QwkzcTeh9kNgw+PIS5/ldqYUOBIGl6Se3FPa9STLuMHvfhDh6P+N3Rq1Wy2l4BTZggqPEslU5kEH7y+4wBpqP78b/kfJDNkk1zBSKSuLJmrX5zw3bzlOTYBfVV6UNM1lqavslr7c5tlf9IWs22TRPsHIkB8h0wkgGo7JNxNv7ggVDX+R0vA3XfwJ1QPzHwnazvdCZawLuBSEk1BezF03Bwnq4xguEfZYXXLTL0cJ6LdT0w5beOr7gbVGFP5XFIZDy02oNGnlQODws3gPMoVXfMryZMbt2yQq8PhVgy3e3zpIveX5lje4QNayur8AlNpCn3sOzs9XcbgZJOgdX08uuN5VL+6LxN1aQLPR/9b9JMmvBHgBawNWMRvgl/ZOvV21ZXohm6dPryTsF4VGIXCgHX7z33vOAdi0Z/zvuPYtRsW1VFaYgNnHeCIVBvXHBHWy0XK3d/Ty/N3R0vhX5LfOKjPyqs7wea9shIy4Mn4G5v/InYpESfgs8VRjXfRb2L28i8Oi7f6AJv4nzP/9JJpJo1K+pdYTme3/OP2tWisA55ZLcOTMMHJl5IzxzdDke8e63Hb4mRmO3cfYyece5rLU2Ak="
+    - secure: "KuTcw3SrSjtap+3eZJqwMuPHKHqEgguk905EifiUQSHNHoLxmGk9SwCwy5ujIcdrPze2w18KF2Nfcqu213o7pK+5FHcFc4A61JkBw+TOYHYiP9GmuINlTg5Vp/tPoISRKdLUiJ1ZCstcmUAJ/+u3x0WqzlZ3qvWa7YCBruUprjNK2KaNqinNKOib8/vtyPP3MfcaQiG7LqG7PUGER0aVyMX/TjsBAG2ShiIB2ir3yFkshEw/eNRP9hVsHz7JmA18mHOmbTYPZ+TE3+snc1ocEcX/YwmNvq2dlu51XUlxE0hatF5Vt4D1BRd/pT4Y6cyJ3+HXTG5+l8LeTI5oGk7Msfhew/YCSlkygciwdzbwSJtNrtMNVkIh9WW3qDjAZyXKPpVIOwPZH+hARM/pPWGa/JtmOi8d8T/vr6OXjwuvtrvPssbauxbaOTe7q5whWrAH9gNoeUuGbz6JpvWwxVJwJ4f3Wj5aLmO3Fv4tAT3gQHjkKEE2RYg1PRySNI/qkEwuF0CFuVDEbb8dKBUoYQISCIbcoBjiC5rimt6hVmRbfvtBym2Dmwir4x3m00GvessUWShGe7Ai0SQdOAhJZTqXJyyqySEwLx8SJSiOP8j9VWOCcfSTMzBWQ4H/YjhUxOUkkyo3M9Q4XtOL15/0kemklts2qV/ztcI9+o8zupaZ0Tw="
 
 addons:
-  apt:
-    packages:
-    - libaio-dev
   # https://scan.coverity.com/travis_ci
   coverity_scan:
     project:
-      name: ApacheActiveMQArtemis
-      version: 2.1.0-SNAPSHOT
-      description: Apache ActiveMQ Artemis has a proven non blocking architecture. It delivers outstanding performance.
+      name: cli-java
+      version: SNAPSHOT
+      description: cli-java is a collection of commandline messaging clients suitable for interacting with Message Oriented Middleware such as ActiveMQ Artemis broker or Qpid Dispatch router.
 
     notification_email: jdanek@redhat.com
 
