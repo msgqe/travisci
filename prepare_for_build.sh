@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-# clone the repository and clean up things
+# clone the repository
 
-git clone https://github.com/rh-messaging/cli-java.git
+git clone git://git.apache.org/qpid-proton.git
 
-cd cli-java
+cd qpid-proton
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/install

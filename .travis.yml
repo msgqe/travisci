@@ -2,11 +2,26 @@ os: linux
 dist: trusty
 sudo: false
 language:
-- java
-
-cache:
-  directories:
-  - $HOME/.m2
+- c
+- cpp
+compiler:
+- gcc
+addons:
+  apt:
+    packages:
+    - cmake
+    - libssl-dev
+    - libsasl2-dev
+    - sasl2-bin
+    - swig
+    - python-dev
+    - valgrind
+    - ruby
+    - ruby-dev
+    - python3-dev
+    - php5
+    - golang
+    - lcov
 
 env:
   global:
@@ -27,7 +42,7 @@ addons:
     build_command_prepend: ./prepare_for_build.sh
 
     # The command that will be added as an argument to "cov-build" to compile your project for analysis,
-    build_command: ./build_for_analysis.sh
+    build_command: --fs-capture-search ./ ./build_for_analysis.sh
 
     # Pattern to match selecting branches that will run analysis. We recommend leaving this set to 'coverity_scan'.
     # Take care in resource usage, and consider the build frequency allowances per

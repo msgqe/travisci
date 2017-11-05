@@ -2,7 +2,8 @@
 
 # build everything that should be analyzed
 
-cd cli-java
+cd qpid-proton/build
 
-# https://scan.coverity.com/download?tab=java
-mvn -DskipTests=true compile
+# https://scan.coverity.com/download?tab=cxx
+# https://scan.coverity.com/download?tab=other
+cmake --build . --target install
