@@ -25,4 +25,5 @@ cd qpid-proton/build
 
 # https://scan.coverity.com/download?tab=cxx
 # https://scan.coverity.com/download?tab=other
+cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/install
 cmake --build . --target install
