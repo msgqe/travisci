@@ -8,6 +8,11 @@ compiler:
 - gcc
 env:
   global:
+    - "COVERITY_SCAN_PROJECT_NAME='Apache Qpid Proton'"
+    - "COVERITY_SCAN_NOTIFICATION_EMAIL='jdanek@redhat.com'"
+    - "COVERITY_SCAN_BUILD_COMMAND='--fs-capture-search ./ ./build_for_analysis.sh'"
+    - "COVERITY_SCAN_BUILD_COMMAND_PREPEND='./prepare_for_build.sh'"
+    - "COVERITY_SCAN_BRANCH_PATTERN='.*'"
     # COVERITY_SCAN_TOKEN
     - secure: "V0RgDH5EojeAjj8sNJopUUeURglsUN8SqYVajn8MiNRHpoAGeCET9L20s/W8trVQvxL8v/KhJvHj1wRDKDBAXGtq5EehVlt7N65BgjWCm5L6TY/PwRcqzv17bCudywFktqba9mH2DGyH4kZ76umJMrwUVlsQdkgpsP/IJqbcurdoDFgbg/vP7vgAcY4EQ4aiMO5JyuypT3U4NKX+sGsVj/taP9DFF/Gv6WOL39v/E0sry/f6c0UbNoHGWPtBRtzVUxfusrUWlwguBLmJvbWdr/5BFZsD1S2yfAa9ItDtTgbKhcRzB5ei654RAf20h0de0ZHHnWdHKAPTZQu/1efvWnlsjJ6nYFetcFxeKZTTZfg98ERoL6Mi2cyWctyCVA4MYCQlF7ZndAKkGcw3St58rlI/KPFl1W7e7tdYVDUCs5FQis4SMb9C2NBPofYsykciXyhYRHigT3Eq1YNnQSbDzVrECLdSXRXVXr4Z3RYlguzfse5fJYmT1quTVTg01QaXCmu078E6o08q3Ho4GJ5TN/6+pU66c3/EpihhQwC8j5LKO+Jaaj4+XyLYHpWNTfLucTyWwelDc9wrSV/GkOQ2AqCGabu4IH8IzQn3C475Esz5lAVTSfmBgP1dq2hBQAh7GsEPEA9yzzhUn4jiKfyancMO4bPbTsSqsiPZQDbI2CM="
 addons:
@@ -25,24 +30,5 @@ addons:
     - python3-dev
     - golang
     - lcov
-  # https://scan.coverity.com/travis_ci
-  coverity_scan:
-    project:
-      name: apache-qpid-proton
-      version: git
-      description: Qpid Proton is a high-performance, lightweight messaging library. It can be used in the widest range of messaging applications, including brokers, client libraries, routers, bridges, proxies, and more. Proton makes it trivial to integrate with the AMQP 1.0 ecosystem from any platform, environment, or language.
-
-    notification_email: jdanek@redhat.com
-
-    # Commands to prepare for build_command
-    build_command_prepend: ./prepare_for_build.sh
-
-    # The command that will be added as an argument to "cov-build" to compile your project for analysis,
-    build_command: --fs-capture-search ./ ./build_for_analysis.sh
-
-    # Pattern to match selecting branches that will run analysis. We recommend leaving this set to 'coverity_scan'.
-    # Take care in resource usage, and consider the build frequency allowances per
-    #   https://scan.coverity.com/faq#frequency
-    branch_pattern: .*
- # skip default build steps
-script: []
+script:
+  - "bash travisci_build_coverity_scan.sh"
