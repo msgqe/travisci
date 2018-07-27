@@ -82,7 +82,7 @@ cov-import-scm --dir $RESULTS_DIR --scm git --log $RESULTS_DIR/scm_log.txt 2>&1
 echo -e "\033[33;1mTarring Coverity Scan Analysis results...\033[0m"
 RESULTS_ARCHIVE=analysis-results.tgz
 tar czf $RESULTS_ARCHIVE $RESULTS_DIR
-SHA=`git rev-parse --short HEAD`
+SHA=`git --git-dir=qpid-proton/.git rev-parse --short HEAD`/`git --git-dir=qpid-proton-j/.git rev-parse --short HEAD`
 
 echo -e "\033[33;1mUploading Coverity Scan Analysis results...\033[0m"
 response=$(curl \
