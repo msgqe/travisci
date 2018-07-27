@@ -20,7 +20,7 @@
 
 # prepare_for_build.sh clones the relevant repository
 
-git clone git://git.apache.org/qpid-proton.git
+git clone https://github.com/apache/qpid-proton.git
 mkdir qpid-proton/build
 
-git clone git://git.apache.org/qpid-proton-j.git
+git clone https://github.com/apache/qpid-proton-j.git
