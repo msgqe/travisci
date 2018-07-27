@@ -4,6 +4,7 @@ sudo: false
 language:
 - c
 - cpp
+- java
 compiler:
 - gcc
 env:

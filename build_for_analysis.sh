@@ -20,8 +20,14 @@
 
 # build_for_analysis.sh builds everything that should be analyzed
 
-cd qpid-proton/build
+pushd qpid-proton/build
 # https://scan.coverity.com/download?tab=cxx
 # https://scan.coverity.com/download?tab=other
 cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/install
 cmake --build . --target install
+popd
+
+pushd qpid-proton-j
+# https://scan.coverity.com/download?tab=java
+mvn -DskipTests=true -Dmaven.javadoc.skip=true compile
+popd
