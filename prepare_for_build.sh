@@ -2,7 +2,7 @@
 
 # clone the repository and clean up things
 
-git clone git://git.apache.org/activemq-artemis.git
+git clone https://github.com/apache/activemq-artemis.git
 
 cd activemq-artemis
 
