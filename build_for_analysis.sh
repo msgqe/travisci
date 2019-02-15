@@ -26,8 +26,3 @@ pushd qpid-proton/build
 cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/install
 cmake --build . --target install
 popd
-
-pushd qpid-proton-j
-# https://scan.coverity.com/download?tab=java
-mvn -DskipTests=true -Dmaven.javadoc.skip=true compile
-popd
