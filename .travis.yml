@@ -11,7 +11,7 @@ env:
   global:
     - "COVERITY_SCAN_PROJECT_NAME='Apache Qpid Proton'"
     - "COVERITY_SCAN_NOTIFICATION_EMAIL='jdanek@redhat.com'"
-    - "COVERITY_SCAN_BUILD_COMMAND='./build_for_analysis.sh'"
+    - "COVERITY_SCAN_BUILD_COMMAND='--fs-capture-search ./ ./build_for_analysis.sh'"
     - "COVERITY_SCAN_BUILD_COMMAND_PREPEND='./prepare_for_build.sh'"
     - "COVERITY_SCAN_BRANCH_PATTERN='.*'"
     # COVERITY_SCAN_TOKEN
