@@ -18,6 +18,8 @@ addons:
   apt:
     packages:
     - libaio-dev
+    - gcc-multilib
+    - g++-multilib
   # https://scan.coverity.com/travis_ci
   coverity_scan:
     project:
