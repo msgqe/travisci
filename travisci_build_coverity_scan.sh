@@ -66,7 +66,7 @@ if [ ! -d $TOOL_BASE ]; then
   popd
 fi
 
-TOOL_DIR=`find $TOOL_BASE -type d -name 'cov-analysis*'`
+TOOL_DIR=$(find $TOOL_BASE -type d -name 'cov-analysis*')
 export PATH=$TOOL_DIR/bin:$PATH
 
 # Build
@@ -82,14 +82,14 @@ cov-import-scm --dir $RESULTS_DIR --scm git --log $RESULTS_DIR/scm_log.txt 2>&1
 echo -e "\033[33;1mTarring Coverity Scan Analysis results...\033[0m"
 RESULTS_ARCHIVE=analysis-results.tgz
 tar czf $RESULTS_ARCHIVE $RESULTS_DIR
-SHA=`git --git-dir=qpid-proton/.git rev-parse --short HEAD`/`git --git-dir=qpid-proton-j/.git rev-parse --short HEAD`
+SHA=$(git --git-dir=qpid-dispatch/.git rev-parse --short HEAD)
 
 echo -e "\033[33;1mUploading Coverity Scan Analysis results...\033[0m"
 response=$(curl \
   --silent --write-out "\n%{http_code}\n" \
   --form project="$COVERITY_SCAN_PROJECT_NAME" \
-  --form token=$COVERITY_SCAN_TOKEN \
-  --form email=$COVERITY_SCAN_NOTIFICATION_EMAIL \
+  --form token="$COVERITY_SCAN_TOKEN" \
+  --form email="$COVERITY_SCAN_NOTIFICATION_EMAIL" \
   --form file=@$RESULTS_ARCHIVE \
   --form version=$SHA \
   --form description="Travis CI build" \
