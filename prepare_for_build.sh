@@ -31,6 +31,6 @@ mkdir qpid-dispatch/build
 pushd qpid-proton/build
 # https://scan.coverity.com/download?tab=cxx
 # https://scan.coverity.com/download?tab=other
-cmake .. -DCMAKE_INSTALL_PREFIX=install
+cmake .. -DCMAKE_INSTALL_PREFIX=install -DBUILD_BINDINGS="python"
 cmake --build . --target install
 popd
