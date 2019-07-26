@@ -20,7 +20,17 @@
 
 # prepare_for_build.sh clones the relevant repository
 
+set -Exeuo pipefail
+
 git clone https://github.com/apache/qpid-proton.git
 mkdir qpid-proton/build
 
-git clone https://github.com/apache/qpid-proton-j.git
+git clone https://github.com/apache/qpid-dispatch.git
+mkdir qpid-dispatch/build
+
+pushd qpid-proton/build
+# https://scan.coverity.com/download?tab=cxx
+# https://scan.coverity.com/download?tab=other
+cmake .. -DCMAKE_INSTALL_PREFIX=install
+cmake --build . --target install
+popd

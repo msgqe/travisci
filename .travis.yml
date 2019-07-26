@@ -1,24 +1,18 @@
 os: linux
-dist: trusty
+dist: bionic
 sudo: false
-language:
-- c
-- cpp
-- java
+language: c
 compiler:
 - gcc
 env:
   global:
-    - "COVERITY_SCAN_PROJECT_NAME='Apache Qpid Proton'"
+    - "COVERITY_SCAN_PROJECT_NAME='Apache Qpid dispatch-router'"
     - "COVERITY_SCAN_NOTIFICATION_EMAIL='jdanek@redhat.com'"
-    - "COVERITY_SCAN_BUILD_COMMAND='--fs-capture-search ./ ./build_for_analysis.sh'"
+    - "COVERITY_SCAN_BUILD_COMMAND='./build_for_analysis.sh'"
     - "COVERITY_SCAN_BUILD_COMMAND_PREPEND='./prepare_for_build.sh'"
     - "COVERITY_SCAN_BRANCH_PATTERN='.*'"
     # COVERITY_SCAN_TOKEN
-    - secure: "V0RgDH5EojeAjj8sNJopUUeURglsUN8SqYVajn8MiNRHpoAGeCET9L20s/W8trVQvxL8v/KhJvHj1wRDKDBAXGtq5EehVlt7N65BgjWCm5L6TY/PwRcqzv17bCudywFktqba9mH2DGyH4kZ76umJMrwUVlsQdkgpsP/IJqbcurdoDFgbg/vP7vgAcY4EQ4aiMO5JyuypT3U4NKX+sGsVj/taP9DFF/Gv6WOL39v/E0sry/f6c0UbNoHGWPtBRtzVUxfusrUWlwguBLmJvbWdr/5BFZsD1S2yfAa9ItDtTgbKhcRzB5ei654RAf20h0de0ZHHnWdHKAPTZQu/1efvWnlsjJ6nYFetcFxeKZTTZfg98ERoL6Mi2cyWctyCVA4MYCQlF7ZndAKkGcw3St58rlI/KPFl1W7e7tdYVDUCs5FQis4SMb9C2NBPofYsykciXyhYRHigT3Eq1YNnQSbDzVrECLdSXRXVXr4Z3RYlguzfse5fJYmT1quTVTg01QaXCmu078E6o08q3Ho4GJ5TN/6+pU66c3/EpihhQwC8j5LKO+Jaaj4+XyLYHpWNTfLucTyWwelDc9wrSV/GkOQ2AqCGabu4IH8IzQn3C475Esz5lAVTSfmBgP1dq2hBQAh7GsEPEA9yzzhUn4jiKfyancMO4bPbTsSqsiPZQDbI2CM="
-cache:
-  directories:
-  - $HOME/.m2
+    - secure: "oi6WcJ1QweYqrlwTUAXe9174GcLTdxz+TQvYE6xYfAMAnLeNJVtxm6Wj/yXqdFHifu3VApjY1+it0057HFRqgCh5fQRENbtboKymXDLl0Nelci325ORGSJI/DKnWcv2lRe3jgvriPkJM2UDbJwPCaV0u7prxMHn/uyVnlzZx0qdEcifJIz5awKpW8qE7zwaBuN//IjLN9/H36KbOFzphh7+KHE+ocEq6vVrUOGYEAtWPLyseXv187FeDeKbq1ECzFVAKpg3pA7Occd4JORflf1+9Sw20sHbpn2IQrhxOB4hFKTw4kQkNjkhHJcusJhilDciv0fMr5pP+FWMm+bbvq4M70L8HNWTydgeO1CQjU99OJm9a2nTzW+HL/t/7jcTJtpGLRhUr+xnHppujENq7xOnGhxR2sVfObQHJSnGDPyBz6ZsSoFw8MscmKyp3wzErCJx75TS0rDtf9Tv2RnJTrz9tKd8pt1zX+nSaZOE3h9XwMrtlatp6HL7OlxCvL1+0ZpChuy6VnAcpblnBX9znebDj/GvkawojBJpsoSNiZvaxjDwB7WY1dk1GgK9ePoft0iHohBYDOW/QrVc3Z27mgLaJz7NG0YzRTpv5Nz/E4OaPBtZjQkgkmMt+F1+1rfzT7rcZMbL15wPXyi9FHZDummvLS25UeNKpBEgyvCr18pE="
 addons:
   apt:
     packages:
@@ -34,5 +28,8 @@ addons:
     - python3-dev
     - golang
     - lcov
+    - libwebsockets-dev
+    - libqpid-proton11-dev
+    - python3-qpid-proton
 script:
   - "bash travisci_build_coverity_scan.sh"
