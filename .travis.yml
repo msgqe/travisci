@@ -29,7 +29,5 @@ addons:
     - golang
     - lcov
     - libwebsockets-dev
-    - libqpid-proton11-dev
-    - python3-qpid-proton
 script:
   - "bash travisci_build_coverity_scan.sh"
