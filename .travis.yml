@@ -30,4 +30,4 @@ addons:
     - lcov
     - libwebsockets-dev
 script:
-  - "bash travisci_build_coverity_scan.sh"
+  - "travis_wait 30 bash travisci_build_coverity_scan.sh"
