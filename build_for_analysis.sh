@@ -28,3 +28,6 @@ pushd qpid-dispatch/build
 cmake .. -DCMAKE_INSTALL_PREFIX=install -DProton_DIR="${PWD}/../../qpid-proton/build/install/lib/cmake/Proton/"
 cmake --build . --target install
 popd
+
+# https://community.synopsys.com/s/question/0D53400004OKqBGCA1/nodejs-file-system-capture-detecting-3rd-party-libraries-no-matter-what
+rm -rf qpid-dispatch/build/console/node_modules/

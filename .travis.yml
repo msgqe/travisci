@@ -8,7 +8,7 @@ env:
   global:
     - "COVERITY_SCAN_PROJECT_NAME='Apache Qpid dispatch-router'"
     - "COVERITY_SCAN_NOTIFICATION_EMAIL='jdanek@redhat.com'"
-    - "COVERITY_SCAN_BUILD_COMMAND='--fs-capture-search ./qpid-dispatch/ --fs-capture-search-exclude-regex qpid-dispatch/build/console/node_modules/ ./build_for_analysis.sh'"
+    - "COVERITY_SCAN_BUILD_COMMAND='--fs-capture-search ./qpid-dispatch/ ./build_for_analysis.sh'"
     - "COVERITY_SCAN_BUILD_COMMAND_PREPEND='./prepare_for_build.sh'"
     - "COVERITY_SCAN_BRANCH_PATTERN='.*'"
     # COVERITY_SCAN_TOKEN
