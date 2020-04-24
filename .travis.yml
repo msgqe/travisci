@@ -40,5 +40,5 @@ addons:
     #   https://scan.coverity.com/faq#frequency
     branch_pattern: .*
 
-# skip default build steps
-script: []
+# override default build steps
+script: echo "Build was hopefully submitted to Coverity!"
