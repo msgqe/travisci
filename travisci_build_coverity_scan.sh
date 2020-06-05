@@ -1,7 +1,7 @@
+#!/bin/sh
+
 # https://scan.coverity.com/scripts/travisci_build_coverity_scan.sh
 # All Rights Reserved
-
-#!/bin/sh
 
 set -e
 

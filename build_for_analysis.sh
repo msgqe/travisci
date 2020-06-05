@@ -25,7 +25,8 @@ set -Exeuo pipefail
 pushd qpid-dispatch/build
 # https://scan.coverity.com/download?tab=cxx
 # https://scan.coverity.com/download?tab=other
-cmake .. -DCMAKE_INSTALL_PREFIX=install -DProton_DIR="${PWD}/../../qpid-proton/build/install/lib/cmake/Proton/"
+# Coverity deserves to get a Debug build
+cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=install -DProton_DIR="${PWD}/../../qpid-proton/build/install/lib/cmake/Proton/"
 cmake --build . --target install
 popd
 
