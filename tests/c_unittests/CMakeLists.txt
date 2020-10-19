@@ -23,7 +23,7 @@ file(GLOB unittest_SOURCES
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CXX_STANDARD_FLAGS} ${SANITIZE_FLAGS}")
 add_executable(c_unittests ${unittest_SOURCES})
-target_link_libraries(c_unittests pthread qpid-dispatch)
+target_link_libraries(c_unittests pthread qpid-dispatch ${Proton_LIBRARIES})
 
 add_test(
     NAME c_unittests
