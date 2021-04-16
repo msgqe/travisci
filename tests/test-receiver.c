@@ -150,7 +150,7 @@ static void usage(void)
 {
     printf("Usage: receiver <options>\n");
     printf("-a      \tThe address:port of the server [%s]\n", host_address);
-    printf("-c      \tExit after N messages arrive (0 == run forever) [%"PRIu64"]\n", limit);
+    printf("-c      \tExit after N messages arrive (0 == run forever) [%" PRIu64 "]\n", limit);
     printf("-i      \tContainer name [%s]\n", container_name);
     printf("-s      \tSource address [%s]\n", source_address);
     printf("-w      \tCredit window [%d]\n", credit_window);
@@ -174,7 +174,7 @@ int main(int argc, char** argv)
         case 'h': usage(); break;
         case 'a': host_address = optarg; break;
         case 'c':
-            if (sscanf(optarg, "%"PRIu64, &limit) != 1)
+            if (sscanf(optarg, "%" PRIu64 , &limit) != 1)
                 usage();
             break;
         case 'i': container_name = optarg; break;
